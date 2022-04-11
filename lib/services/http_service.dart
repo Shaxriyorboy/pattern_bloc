@@ -44,13 +44,6 @@ class Network {
     return null;
   }
 
-  static Future<String?> PATCH(String api, Map<String, String> params) async {
-    var uri = Uri.https(getServer(), api); // http or https
-    var response = await patch(uri, headers: getHeaders(), body: jsonEncode(params));
-    if (response.statusCode == 200) return response.body;
-    return null;
-  }
-
   static Future<String?> DEL(String api, Map<String, String> params) async {
     var uri = Uri.https(getServer(), api, params); // http or https
     var response = await delete(uri, headers: getHeaders());

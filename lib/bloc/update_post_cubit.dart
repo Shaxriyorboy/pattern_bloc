@@ -12,10 +12,8 @@ class UpdatePostCubit extends Cubit<UpdatePostState>  {
     post.userId = 1;
     post.title = titleController.text;
     post.body = bodyController.text;
-    print(post.toJson());
     emit(UpdatePostLoading());
     final response = await Network.PUT(Network.API_UPDATE + post.id.toString(), Network.paramsUpdate(post));
-    print(response);
     if (response != null) {
       emit(UpdatePostLoaded(isUpdated: true));
     } else {

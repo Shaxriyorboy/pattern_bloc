@@ -14,7 +14,6 @@ class ListPostCubit extends Cubit<ListPostState>{
   void apiPostList() async{
     emit(ListPostLoading());
     final response = await Network.GET(Network.API_LIST, Network.paramsEmpty());
-    print(response);
     if(response != null){
       emit(ListPostLoaded(posts: Network.parsePostList(response)));
     }else{
@@ -25,7 +24,6 @@ class ListPostCubit extends Cubit<ListPostState>{
   void apiDelete(Post post)async{
     emit(ListPostLoading());
     final response = await Network.DEL(Network.API_DELETE+post.id.toString(), Network.paramsEmpty());
-    print(response);
     if(response != null){
       apiPostList();
     }else{
@@ -42,7 +40,6 @@ class ListPostCubit extends Cubit<ListPostState>{
   }
 
   void callUpdatePage(BuildContext context, Post post) async {
-    print(post.toJson());
     var results = await Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => UpdatePage(post: post)));
     if (results != null) {
