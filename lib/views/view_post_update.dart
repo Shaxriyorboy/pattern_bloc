@@ -23,7 +23,7 @@ Widget viewOfUpdate(bool isLoading, BuildContext context, Post post, TextEditing
             SizedBox(
               height: 10,
             ),
-            FlatButton(
+            MaterialButton(
               onPressed: () {
                 BlocProvider.of<UpdatePostCubit>(context).apiPostUpdate(post,titleController,bodyController);
               },

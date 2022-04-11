@@ -46,7 +46,7 @@ class ListPostCubit extends Cubit<ListPostState>{
     var results = await Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => UpdatePage(post: post)));
     if (results != null) {
-      BlocProvider.of<ListPostCubit>(context).apiPostList();
+      apiPostList();
     }
   }
 
